@@ -1,0 +1,14 @@
+sample_tsv: "configs/metadata_test.tsv"
+
+species: test-data
+
+download_fasta: false
+
+plot_distribution: false
+
+parameters:
+  k:
+    - 10
+  m:
+    - 1
+    - 10

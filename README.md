@@ -12,6 +12,7 @@ Clone recursively the repository, enter the main folder, install RLZI, create th
 
 ```
 git clone --recursively https://github.com/rodtheo/RLZI
+git submodule update --remote
 cd ./RLZI/
 bash install.sh
 conda env create -f environment.yml -n rlzi-env
