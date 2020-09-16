@@ -1,6 +1,6 @@
 # Relative Lempel-Ziv with Inexact Matchings (RLZI)
 
-Briefly, it detects the substrings from a sample sequence S previously encountered in a reference sequence R with up to $k$ mismatches (parameter). It belongs to the family of algorithms known as lempel-ziv parsers and its variants.
+Briefly, it detects the substrings from a sample sequence S previously encountered in a reference sequence R with up to **k** mismatches (where k is a parameter). It belongs to the family of algorithms known as lempel-ziv parsers and its variants.
 
 ## Installing!
 
@@ -28,19 +28,27 @@ snakemake --use-conda -p -j 1
 
 This should succeed :).
 
-Once that works, you can configure it yourself by copying
+MODIFY FOLLOWING SENTENCE.
+_Once that works, you can configure it yourself by copying
 `test-data/conf-test.yml` to a new file and editing it. See
-`conf/conf-necator.yml` for a real example.
+`conf/conf-necator.yml` for a real example_
 
 ## Explanation of output files (still to be changed).
 
-In the output directory (e.g. `output.test`, or whatever is specified
+By default, RLZI will create the output directory in accordance to what is specified in the config file you use.
+
+For instance, in `configs/config-test.yaml` are written the configurations to run the test dataset.
+
+It will create the output directories `RLZ_k10_m1` and `RLZ_k10_m10` inside `test-data` because, in config file, we declared the same parameter `k=10` and variable parameter `m` (i.e. `m=1` and `m=10`). Therefore, RLZI will execute twice with test-data and create both output directories.
+
+In the output directories (e.g. `test-data/RefL_TarL/RLZ_k10_m10`, or whatever is specified
 in the config file you use), there will be a few important files --
 the main ones are,
 
-* `gather.csv` - the list of contaminants
-* `matching-contigs.fa` - all contigs with any matches to the database
-* `matching-fragments.fa` - all fragments with any matches to the database
+* `RLZ_k10_m10` - the list of contaminants
+* `RLZ_k10_m10_sdbB.sdsl` - all contigs with any matches to the database
+* `RLZ_k10_m10_sdbChref.sdsl` - all fragments with any matches to the database
+* `RLZ_k10_m10_sdbl.sdsl` - all fragments with any matches to the database
 
 ## Resources
 
@@ -54,6 +62,6 @@ Please ask questions and file issues on [the RLZI GitHub issue tracker](https://
 
 Thanks to ... for their inspiration!
 
-This README is inspired in the files described at the excelent [blog](http://ivory.idyll.org/blog/2020-improved-workflows-as-applications.html) written by Dr. Titus Brown.
+This README is inspired in the files described at the excelent [blog](http://ivory.idyll.org/blog/2020-software-and-workflow-dev-practices.html) written by Dr. Titus Brown.
 
 ----
