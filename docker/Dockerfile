@@ -22,7 +22,7 @@ RUN chown $UID:$GID /tmp/environment.yml
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y git wget build-essential cmake libboost-all-dev
+    apt-get install -y git wget build-essential cmake libboost-all-dev zlib1g-dev
 
 USER $USER
 
@@ -54,8 +54,8 @@ RUN conda activate $ENV_PREFIX
 
 RUN conda env list
 
-ENV CXX /usr/bin/gcc
-ENV BOOST_INC $ENV_PREFIX/include/boost
+# ENV CXX /usr/bin/g++
+# ENV BOOST_INC $ENV_PREFIX/include/boost
 # create a project directory inside user home
 WORKDIR $HOME
 RUN git clone --recursive https://github.com/rodtheo/RLZI
