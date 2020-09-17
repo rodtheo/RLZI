@@ -22,7 +22,7 @@ RUN chown $UID:$GID /tmp/environment.yml
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y git wget build-essential cmake
+    apt-get install -y git wget build-essential cmake libboost-all-dev
 
 USER $USER
 

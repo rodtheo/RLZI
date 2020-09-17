@@ -2,7 +2,6 @@ WARN_FLAGS = \
 	-std=c++11 -O3 -g  \
 	 -I../builds/sdsl-lite/include \
 	  -I../src/BWTIL/extern/bitvector/include \
-		-I$(BOOST_INC)
 		 -L../builds/sdsl-lite/lib -lsdsl -ldivsufsort -ldivsufsort64 -lz
 
 BIN = RLZI.x
