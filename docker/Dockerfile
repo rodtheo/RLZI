@@ -46,13 +46,16 @@ RUN conda init bash
 # build the conda environment
 ENV ENV_PREFIX $HOME/env
 RUN conda update --name base --channel defaults conda && \
-    conda env create --name rlzienv --prefix $ENV_PREFIX --file /tmp/environment.yml --force && \
+    conda env create --prefix $ENV_PREFIX --file /tmp/environment.yml --force && \
     conda clean --all --yes
 
 RUN conda activate $ENV_PREFIX
+# RUN conda activate rlzienv
+
+RUN conda env list
 
 ENV CXX /usr/bin/gcc
-
+ENV BOOST_INC $ENV_PREFIX/include/boost
 # create a project directory inside user home
 WORKDIR $HOME
 RUN git clone --recursive https://github.com/rodtheo/RLZI
