@@ -54,7 +54,7 @@ rule RLZ_parsing:
     benchmark:
         "{species}/{sampler}_{samplesamp}/RLZ_k{k}_m{m}/benchmark.txt"
     shell:
-        "/Users/rodtheo/Bioinfo/PROJETOS/STUDIES/LZ/repos/BWTIL/tools/sFM-index/sFM-index-sdsl.x --reverse-complement -k {wildcards.k} -m {wildcards.m} -R {input.ref} -S {input.samp} -o {wildcards.species}/{wildcards.sampler}_{wildcards.samplesamp}/RLZ_k{wildcards.k}_m{wildcards.m}/RLZ_k{wildcards.k}_m{wildcards.m} > {output}"
+        "RLZI.x --reverse-complement -k {wildcards.k} -m {wildcards.m} -R {input.ref} -S {input.samp} -o {wildcards.species}/{wildcards.sampler}_{wildcards.samplesamp}/RLZ_k{wildcards.k}_m{wildcards.m}/RLZ_k{wildcards.k}_m{wildcards.m} > {output}"
 
 rule prepare_to_draw_synteny:
     input:
