@@ -1,4 +1,4 @@
-name: rlzi-env
+name: rlzienv
 channels:
     - conda-forge
     - bioconda

@@ -43,6 +43,14 @@ RUN echo ". $CONDA_DIR/etc/profile.d/conda.sh" >> ~/.profile
 # make conda activate command available from /bin/bash --interative shells
 RUN conda init bash
 
+# build the conda environment
+ENV ENV_PREFIX $HOME/env
+RUN conda update --name base --channel defaults conda && \
+    conda env create --name rlzienv --prefix $ENV_PREFIX --file /tmp/environment.yml --force && \
+    conda clean --all --yes
+
+RUN conda activate $ENV_PREFIX
+
 ENV CXX /usr/bin/gcc
 
 # create a project directory inside user home
@@ -54,11 +62,3 @@ RUN chmod +x install.sh
 RUN bash install.sh
 
 ENV PATH=$HOME/RLZI/bin:$PATH
-
-# build the conda environment
-ENV ENV_PREFIX $PWD/env
-RUN conda update --name base --channel defaults conda && \
-    conda env create --prefix $ENV_PREFIX --file /tmp/environment.yml --force && \
-    conda clean --all --yes
-
-RUN conda activate rlzi-env
