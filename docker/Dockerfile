@@ -22,7 +22,7 @@ RUN chown $UID:$GID /tmp/environment.yml
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y git wget
+    apt-get install -y git wget build-essential cmake
 
 USER $USER
 
@@ -43,11 +43,13 @@ RUN echo ". $CONDA_DIR/etc/profile.d/conda.sh" >> ~/.profile
 # make conda activate command available from /bin/bash --interative shells
 RUN conda init bash
 
+ENV CXX /usr/bin/gcc
+
 # create a project directory inside user home
 WORKDIR $HOME
 RUN git clone --recursive https://github.com/rodtheo/RLZI
-RUN git submodule update --remote
 WORKDIR $HOME/RLZI
+RUN git submodule update --remote
 RUN chmod +x install.sh
 RUN bash install.sh
 
