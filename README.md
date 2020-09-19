@@ -6,7 +6,7 @@ Briefly, it detects the substrings from a sample sequence S previously encounter
 
 Clone this repository recursively to assure the download of submodules ([BWTIL](https://github.com/rodtheo/BWTIL) and [sdsl-lite](https://github.com/simongog/sdsl-lite)). Then, go into the repo directory and execute the install script. Furthermore, create the conda environment (`environment.yaml`) to install the necessary packages to execute the tests. Take a look at Quickstart section for detailed instructions.
 
-### Quickstart:
+### Quickstart (traditional):
 
 Clone recursively the repository, enter the main folder, install RLZI, create the environment, activate it:
 
@@ -17,6 +17,15 @@ cd ./RLZI/
 bash install.sh
 conda env create -f environment.yml -n rlzi-env
 conda activate rlzi-env
+```
+
+### Quickstart (Docker):
+
+```
+git clone https://github.com/rodtheo/RLZI
+cd ./RLZI/docker
+docker build -t rlzi_img --file Dockerfile ../
+docker run -it --rm rlzi_img:latest XXX
 ```
 
 ## Running!
