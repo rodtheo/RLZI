@@ -354,9 +354,9 @@ RLZI - Relative Lempel-Ziv with Inexact matchings)").usage("usage: %prog [option
     const std::vector<std::string> args = parser.args();
 
 
-    if (options["referenceseq"].size() == 0 | options["sampleseq"].size() == 0){
-        parser.error("You didn't specify a reference or sample sequence.");
-    }
+    // if (options["referenceseq"].size() == 0 | options["sampleseq"].size() == 0){
+        // parser.error("You didn't specify a reference or sample sequence.");
+    // }
 
     std::cout << "VERBOSE OPTION= " << options["verbose"] << std::endl;
     if (options.get("verbose"))
