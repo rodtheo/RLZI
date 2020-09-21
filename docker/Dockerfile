@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 SHELL [ "/bin/bash", "--login", "-c" ]
 
 # Create a non-root user
-ARG username=carlos-chagas
+ARG username=rlzi-user
 ARG uid=1000
 ARG gid=100
 ENV USER $username
