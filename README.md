@@ -23,9 +23,18 @@ conda activate rlzi-env
 
 ```
 git clone https://github.com/rodtheo/RLZI
+cd ./RLZI/
+docker run -it -v $PWD/test-data:/home/rlzi-user/RLZI/test-data rodtheo/rlzi_img:latest
+(inside docker environment) conda activate /home/carlos-chagas/env
+(inside docker environment) snakemake --use-conda -p -j 1
+```
+
+### Optional (install from dockerfile)
+
+```
+git clone https://github.com/rodtheo/RLZI
 cd ./RLZI/docker
 docker build -t rlzi_img --file Dockerfile ../
-docker run -it --rm rlzi_img:latest XXX
 ```
 
 ## Running!
@@ -55,10 +64,10 @@ In the output directories (e.g. `test-data/RefL_TarL/RLZ_k10_m10`, or whatever i
 in the config file you use), there will be a few important files --
 the main ones are,
 
-* `RLZ_k10_m10` - the list of contaminants
-* `RLZ_k10_m10_sdbB.sdsl` - all contigs with any matches to the database
-* `RLZ_k10_m10_sdbChref.sdsl` - all fragments with any matches to the database
-* `RLZ_k10_m10_sdbl.sdsl` - all fragments with any matches to the database
+* `RLZ_k10_m10` - 
+* `RLZ_k10_m10_sdbB.sdsl` - 
+* `RLZ_k10_m10_sdbChref.sdsl` - 
+* `RLZ_k10_m10_sdbl.sdsl` - 
 
 ## Resources
 
