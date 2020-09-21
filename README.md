@@ -24,8 +24,8 @@ conda activate rlzi-env
 ```
 git clone https://github.com/rodtheo/RLZI
 cd ./RLZI/
-docker run -it -v $PWD/test-data:/home/rlzi-user/RLZI/test-data rodtheo/rlzi_img:latest
-(inside docker environment) conda activate /home/carlos-chagas/env
+docker run -it -v $PWD/test-data:/home/rlzi-user/RLZI/test-data rodtheo/rlzi:latest
+(inside docker environment) conda activate /home/rlzi-user/env
 (inside docker environment) snakemake --use-conda -p -j 1
 ```
 
