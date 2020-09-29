@@ -58,16 +58,16 @@ By default, RLZI will create the output directory in accordance to what is speci
 
 For instance, in `configs/config-test.yaml` are written the configurations to run the test dataset.
 
-It will create the output directories `RLZ_k10_m1` and `RLZ_k10_m10` inside `test-data` because, in config file, we declared the same parameter `k=10` and variable parameter `m` (i.e. `m=1` and `m=10`). Therefore, RLZI will execute twice with test-data and create both output directories.
+It will create the output directories `RLZ_k10_m1` and `RLZ_k10_m10` inside `test-data` because, in config file, we have declared the parameter `k=10` and parameter `m=10`. Therefore, RLZI will execute twice in order to create both output directories.
 
 In the output directories (e.g. `test-data/RefL_TarL/RLZ_k10_m10`, or whatever is specified
 in the config file you use), there will be a few important files --
 the main ones are,
 
-* `RLZ_k10_m10` - 
-* `RLZ_k10_m10_sdbB.sdsl` - 
-* `RLZ_k10_m10_sdbChref.sdsl` - 
-* `RLZ_k10_m10_sdbl.sdsl` - 
+* `RLZ_k10_m10` -
+* `RLZ_k10_m10_sdbB.sdsl` -
+* `RLZ_k10_m10_sdbChref.sdsl` -
+* `RLZ_k10_m10_sdbl.sdsl` -
 
 ## Resources
 
