@@ -1,4 +1,5 @@
 import pandas as pd
+import pathlib
 
 configfile: "configs/config-test.yaml"
 
@@ -53,8 +54,11 @@ rule RLZ_parsing:
         "{species}/{sampler}_{samplesamp}/RLZ_k{k}_m{m}/RLZ_k{k}_m{m}.log"
     benchmark:
         "{species}/{sampler}_{samplesamp}/RLZ_k{k}_m{m}/benchmark.txt"
-    shell:
-        "RLZI.x --reverse-complement -k {wildcards.k} -m {wildcards.m} -R {input.ref} -S {input.samp} -o {wildcards.species}/{wildcards.sampler}_{wildcards.samplesamp}/RLZ_k{wildcards.k}_m{wildcards.m}/RLZ_k{wildcards.k}_m{wildcards.m} > {output}"
+    run:
+        p = pathlib.Path("{}/{}_{}/RLZ_k{}m_{}/".format(wildcards.species,wildcards.sampler,wildcards.samplesamp,wildcards.k,wildcards.m)).mkdir(parents=True, exist_ok=True)
+        print(p)
+        print("{}/{}_{}/RLZ_k{}m_{}/".format(wildcards.species,wildcards.sampler,wildcards.samplesamp,wildcards.k,wildcards.m))
+        shell("docker run -v $(PWD)/{wildcards.species}/:/Users/rlzi-user/{wildcards.species}/ -w /Users/rlzi-user/ rodtheo/rlzi:v1 --reverse-complement -k {wildcards.k} -m {wildcards.m} -R {input.ref} -S {input.samp} -o {wildcards.species}/{wildcards.sampler}_{wildcards.samplesamp}/RLZ_k{wildcards.k}_m{wildcards.m}/RLZ_k{wildcards.k}_m{wildcards.m} > {output}")
 
 rule prepare_to_draw_synteny:
     input:
