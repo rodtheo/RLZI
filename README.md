@@ -42,9 +42,7 @@ snakemake --use-conda -p -j 1
 
 This should succeed :).
 
-MODIFY FOLLOWING SENTENCE.
-_Once that works, you can configure it yourself by copying
-`configs/config-test.yaml` to a new file and editing it._
+Once that works, you can configure it yourself by copying `configs/config-test.yaml` to a new file and editing it.
 
 ## Explanation of output files (_still to be changed_).
 
