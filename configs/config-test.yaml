@@ -1,11 +1,18 @@
+# tab file specifying the fasta samples, the first column is the filename and the seconda is the nickname (or id)
+# that will be use to conduct the analysis.
+# The id may be important if we would like to download the fasta from NCBI, otherwise it can be the fasta name or any choosen id.
 sample_tsv: "configs/metadata_test.tsv"
 
+# folder in which the fasta files are located
 species: test-data
 
+# try to download the fastas from NCBI genomes based on the id described in the sample_tsv file.
 download_fasta: false
 
+# control if the pipeline will plot the distribution of phrases length.
 plot_distribution: false
 
+# specify the parameters to RLZI.
 parameters:
   k:
     - 10
