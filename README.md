@@ -14,6 +14,7 @@ After this, clone the repository, enter the main folder, create and activate the
 git clone https://github.com/rodtheo/RLZI
 cd ./RLZI/
 conda env create -f environment.yml -n rlzi-env
+docker pull rodtheo/rlzi:v1
 ```
 
 ### Traditional (compiling the software):
