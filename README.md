@@ -4,11 +4,24 @@ Briefly, it detects the substrings from a sample sequence S previously encounter
 
 ## Installing!
 
-Clone this repository recursively to assure the download of submodules ([BWTIL](https://github.com/rodtheo/BWTIL) and [sdsl-lite](https://github.com/simongog/sdsl-lite)). Then, go into the repo directory and execute the install script. Furthermore, create the conda environment (`environment.yaml`) to install the necessary packages to execute the tests. Take a look at Quickstart section for detailed instructions.
+### Quickstart (using Docker):
 
-### Quickstart (traditional):
+Make sure you have [Docker](https://www.docker.com/) and [Conda](https://docs.anaconda.com/anaconda/install/) (or [Miniconda3](https://docs.conda.io/en/latest/miniconda.html)) installed and running smoothly in your computer.
 
-Clone recursively the repository, enter the main folder, install RLZI, create the environment, activate it:
+After this, clone the repository, enter the main folder, create and activate the python3.x environment:
+
+```
+git clone https://github.com/rodtheo/RLZI
+cd ./RLZI/
+conda env create -f environment.yml -n rlzi-env
+```
+
+### Traditional (compiling the software):
+
+#### Dependencies
+Boost
+
+Clone this repository recursively to assure the download of submodules ([BWTIL](https://github.com/rodtheo/BWTIL) and [sdsl-lite](https://github.com/simongog/sdsl-lite)). Then, go into the repo directory and execute the install script. Furthermore, create the conda environment (`environment.yaml`) to install the necessary packages to execute the tests. 
 
 ```
 git clone --recursively https://github.com/rodtheo/RLZI
@@ -16,32 +29,14 @@ git submodule update --remote
 cd ./RLZI/
 bash install.sh
 conda env create -f environment.yml -n rlzi-env
-conda activate rlzi-env
-```
-
-### Quickstart (Docker):
-
-```
-git clone https://github.com/rodtheo/RLZI
-cd ./RLZI/
-docker run -it -v $PWD/test-data:/home/rlzi-user/RLZI/test-data rodtheo/rlzi:latest
-(inside docker environment) conda activate /home/rlzi-user/env
-(inside docker environment) snakemake --use-conda -p -j 1
-```
-
-### Optional (install from dockerfile)
-
-```
-git clone https://github.com/rodtheo/RLZI
-cd ./RLZI/docker
-docker build -t rlzi_img --file Dockerfile ../
 ```
 
 ## Running!
 
-To run, execute (in the top-level directory):
+To run, activate the environment `rlzi-env` and execute the `Snakemake` file (in the top-level directory):
 
 ```
+conda activate rlzi-env
 snakemake --use-conda -p -j 1
 ```
 
@@ -49,25 +44,22 @@ This should succeed :).
 
 MODIFY FOLLOWING SENTENCE.
 _Once that works, you can configure it yourself by copying
-`test-data/conf-test.yml` to a new file and editing it. See
-`conf/conf-necator.yml` for a real example_
+`configs/config-test.yaml` to a new file and editing it._
 
-## Explanation of output files (still to be changed).
+## Explanation of output files (_still to be changed_).
 
 By default, RLZI will create the output directory in accordance to what is specified in the config file you use.
 
 For instance, in `configs/config-test.yaml` are written the configurations to run the test dataset.
 
-It will create the output directories `RLZ_k10_m1` and `RLZ_k10_m10` inside `test-data` because, in config file, we have declared the parameter `k=10` and parameter `m=10`. Therefore, RLZI will execute twice in order to create both output directories.
+It will create the output directories `RLZ_k10_m1` and `RLZ_k10_m10` inside `test-data` because, in config file, we have declared the parameter `k=10` and parameters `m={1, 10}`. Therefore, RLZI will execute twice in order to create both output directories.
 
-In the output directories (e.g. `test-data/RefL_TarL/RLZ_k10_m10`, or whatever is specified
-in the config file you use), there will be a few important files --
-the main ones are,
+The created folders will be `test-data/RefL_TarL/RLZ_k10_m1` and `test-data/RefL_TarL/RLZ_k10_m10`. Let's examine the files within one of the output dirs.
+
+For instance, in `test-data/RefL_TarL/RLZ_k10_m10` (or whatever is specified in the config file you use), there will be a few important files, the main ones are:
 
 * `RLZ_k10_m10` -
-* `RLZ_k10_m10_sdbB.sdsl` -
-* `RLZ_k10_m10_sdbChref.sdsl` -
-* `RLZ_k10_m10_sdbl.sdsl` -
+* `RLZ_k10_m10` - 
 
 ## Resources
 
