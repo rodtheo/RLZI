@@ -1,6 +1,6 @@
 # Relative Lempel-Ziv with Inexact Matchings (RLZI)
 
-Briefly, it detects the substrings from a sample sequence S previously encountered in a reference sequence R with up to **k** mismatches (where k is a parameter). It belongs to the family of algorithms known as lempel-ziv parsers and its variants.
+Briefly, it detects the substrings from a sample sequence S previously encountered in a reference sequence R with up to **m** mismatches spaced by at least **k** characters (where k and m are parameters). It belongs to the family of algorithms known as lempel-ziv parsers and its variants.
 
 ## Installing!
 
@@ -17,10 +17,11 @@ conda env create -f environment.yml -n rlzi-env
 docker pull rodtheo/rlzi:v1
 ```
 
-### Traditional (compiling the software):
+### Recommended (compiling the software):
 
 #### Dependencies
 Boost
+To add more..
 
 Clone this repository recursively to assure the download of submodules ([BWTIL](https://github.com/rodtheo/BWTIL) and [sdsl-lite](https://github.com/simongog/sdsl-lite)). Then, go into the repo directory and execute the install script. Furthermore, create the conda environment (`environment.yaml`) to install the necessary packages to execute the tests. 
 
