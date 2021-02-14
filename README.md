@@ -4,7 +4,7 @@ Briefly, it detects the substrings from a sample sequence S previously encounter
 
 ## Installing!
 
-### Quickstart (using Docker):
+### Recommended (using Docker):
 
 Make sure you have [Docker](https://www.docker.com/) and [Conda](https://docs.anaconda.com/anaconda/install/) (or [Miniconda3](https://docs.conda.io/en/latest/miniconda.html)) installed and running smoothly in your computer.
 
@@ -17,7 +17,7 @@ conda env create -f environment.yml -n rlzi-env
 docker pull rodtheo/rlzi:v1
 ```
 
-### Recommended (compiling the software):
+### Install from source (compiling the software):
 
 #### Dependencies
 Boost
