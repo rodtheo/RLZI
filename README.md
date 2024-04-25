@@ -1,4 +1,4 @@
-# Relative Lempel-Ziv with Inexact Matchings (RLZI)
+# Relative Lempel-Ziv with Inexact Matchings (RLZI) - _UNDER TEST, IMPROVEMENTS AND STILL IN DEVELOPMENT (DO NOT USE IN PRODUCTION)_
 
 Briefly, it detects the substrings from a sample sequence S previously encountered in a reference sequence R with up to **m** mismatches spaced by at least **k** characters (where k and m are parameters). It belongs to the family of algorithms known as lempel-ziv parsers and its variants.
 
