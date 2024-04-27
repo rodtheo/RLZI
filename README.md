@@ -2,6 +2,8 @@
 
 Briefly, it detects the substrings from a sample sequence S previously encountered in a reference sequence R with up to **m** mismatches spaced by at least **k** characters (where k and m are parameters). It belongs to the family of algorithms known as lempel-ziv parsers and its variants.
 
+To know more, please check the [pre-print (under construction)](https://github.com/rodtheo/RLZI/blob/master/RLZI_paper_in_LNCC_template_-1.pdf).
+
 ## Installing!
 
 ### Recommended (using Docker):
